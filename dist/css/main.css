@@ -2,6 +2,41 @@ body{
     background-color: #181c31;
 }    
 
+
+
+.nav{
+    flex-direction: row;
+}
+
+#t2:hover{
+    background-color: aquamarine;
+}
+#t3{
+    background-color: salmon;
+    margin: 0;
+    color: white;
+    width: inherit;
+    
+}
+
+
+
+#t2{
+    background-color: salmon;
+    margin: 0;
+    color: white;
+    width: max-content;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+/*
 tkg-bttn{   
     position: relative;
     background: #293C7E;
@@ -29,3 +64,4 @@ tkg-card-hover::before:hover{
     transform: scale(1.1);
     transition: 0.3s ease-in-out;
 }
+*/

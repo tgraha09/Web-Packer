@@ -1,0 +1,26 @@
+
+tkg-nav{
+  display: block;
+  height: fit-content;
+  width: fit-content;
+}
+
+ul { 
+  margin: unset;
+  padding: unset;
+  overflow: hidden;
+  display:inline-flex;
+  height: inherit;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+  
+  
+li {
+  display:inline-table;
+  text-align: center;
+  min-width: min-content;
+  text-decoration: none;
+}
+  

@@ -1,9 +1,15 @@
 import bttnstyle from './css/tkg-button.css'
-import cardhoverstyle from './css/tkg-card-hover.css'
+//import cardhoverstyle from './css/tkg-card-hover.css'
+import navstyle from './css/tkg-nav.css'
+import pagerstyle from './css/tkg-pager.css'
 import { TKGButton } from './js/tkg-templates/tkg-button'
-import { TKGHoverCard } from './js/tkg-templates/tkg-card-hover'
+//import { TKGHoverCard } from './js/tkg-templates/tkg-card-hover'
+import { TKGAccordian } from './js/tkg-templates/tkg-accordian'
+import { TKGNav } from './js/tkg-templates/tkg-nav'
 import { TKGPager } from './js/tkg-templates/tkg-pager'
 import $ from "jquery";
+
+
 //import {TKG} from './js/tkg-templates/tkg-templates.js';
 
 //import Accordian from './js/tkg-templates.js';
