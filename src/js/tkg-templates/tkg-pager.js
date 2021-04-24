@@ -6,8 +6,10 @@ import a$ from "arrive"
 export class TKGPager extends TKG{
     constructor(){
         super(TKG)
-
-
+        //console.log("CTR")
+        window.onload = ()=>{
+            
+        }
 
         var Init = ()=>{
             
@@ -60,26 +62,26 @@ export class TKGPager extends TKG{
             if($(Self).children(".t-display").length>0){
                 display = document.body.getElementsByClassName("t-display")
                 display.className = "t-display"
-                log("FOUND DISPLAY")
+                //log("FOUND DISPLAY")
             }
             else{
                // log("Missing Display")
                 display = document.createElement("div")
                 display.className = "t-display"
-                log("Appening Display")
+               // log("Appening Display")
                 Self.append(display)
                 
             }
             let pair = {bttn: undefined, disp: undefined, idx: undefined}
             let count = 0;
-            let li = {fade: false, obj: undefined}
+            let li = undefined
             
             
            // log(Self.prechildren)
             Self.prechildren.forEach((child, i)=>{
                 count++
                 
-                li.fade = false
+                
                 if(count == 1){
                     pair.bttn = child
                    // log(display) 
@@ -88,20 +90,22 @@ export class TKGPager extends TKG{
                     
                     pair.disp = child
                    // log(child)
-                    li.obj = document.createElement("li")
-                    li.obj.append(pair.bttn)
-                    li.obj.className = "t-page"
+                    li = document.createElement("li")
+                    li.append(pair.bttn)
+                    li.setAttribute("class", "t-page")
+                    //li.className = "t-page"
                     
                     
-                    controller.append(li.obj)
-                    li.obj.onclick = ()=>{
+                    
+                    controller.append(li)
+                    li.onclick = ()=>{
                        // $(child).hide()
-                        log($(display).children())
+                       // log($(display).children())
                         if($(display).children().length==0){
                             //log("No children")
                         }
                         else if($(display).children().length>0){
-                            log("Has children")
+                            //log("Has children")
                             $(display).empty()
                             
                             $(display).append(child)
@@ -119,7 +123,7 @@ export class TKGPager extends TKG{
                 }
                 if(i == 1){
                     $(display).append(pair.disp)
-                    log("FIRST")
+                   // log("FIRST")
                     
                     //log(display)
                 }
@@ -129,9 +133,10 @@ export class TKGPager extends TKG{
             
            // log(Self)
         }
-        window.onload = ()=>{
-            Init();
-        }
+        //window.addEventListener("DOMContentLoaded", Init())
+        window.onload = Init
+        //this.ExtractString("character can be represented as either UTF-8 or UTF-16 but not have this problem. ", "UTF-16 (or UCS-2, depending on the browser). Every single character can be represented as either UTF-8 or UTF-16 but not have this problem. The only ones that have the problem are the ones that require four bytes in UTF-16 rather than two bytes")
+
     } 
 
     
@@ -140,7 +145,7 @@ export class TKGPager extends TKG{
 
     connectedCallback() {
         
-        
+    
         //console.log('CB');
         
         

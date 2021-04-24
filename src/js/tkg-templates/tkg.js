@@ -24,70 +24,23 @@ export class TKG extends HTMLElement{
         
     }
 
-    
-    WatchDomInsert(callback) {
-      let children = []
-      
-
-      let storageCount = 0;
-      let cc = setInterval(() => {
-       
-          this.tickcount++
-          children = this.children;
-          //console.log(children.length);
-          if (children.length > 0) {
-            
-            // console.log('JQ');
-            let n_children = [];
-            //console.log('Child Present');
-            let idx = 0;
-            // console.log('LEN');
-            // console.log(this.getChildren.length);
-            for (let child of this.getChildren) {
-              if (child !== undefined) {
-                //console.log(child)
-                if (this.ArrayContainsItem(this.tagNameWhitelist, child.tagName) == false) {
-                  n_children.push(child)
-                  localStorage.setItem(idx + '_pre', child.outerHTML)
-                  storageCount++
-                  //this.removeChild(child)
-
-                  // console.log(child);
-                  idx++
-                }
-              }
-            }
-            this.innerHTML = ''
-
-            //this.FunctionLoader()
-            //this.func()
-            //console.log(localStorage.length);
-            for (let index = 0; index < localStorage.length; index++) {
-                let el = $(localStorage.getItem(index + '_pre'))[0]
-                this.prechildren.push(el)
-                //console.log(el);
-               
-            }
-            
-
-            //console.log(this.prechildren);
-            localStorage.clear()
-            this.style.visibility = 'visible'
-          }
-          if(this.prechildren.length > 0 &&  this.innerHTML == ''){
-            //console.log("Children Stored");
-            clearInterval(cc)
-            
-            callback(this.prechildren)
-          }
-
-          
-
-
-      }, 200);
-      
-      
+    ExtractString(sub, string){
+      let matched = 0;
+      let g = 0;
+      let found = '';
+      for (var i = 0; i < string.length; i++) {
+        let letter1 = string.charAt(i)
+        let letter2 = sub.charAt(g)
+        if(letter1 == letter2) {
+          g++;
+          found+=letter1;
+        }
+      }
+      console.log(found);
     }
+
+    
+   
     
     PromiseHandler(promise, callback){
       promise.then(function(data){
@@ -116,21 +69,7 @@ export class TKG extends HTMLElement{
       return false
     }
     
-    Observe(element){
-      const config = { attributes: true, childList: true, subtree: true };
-      const observer = new MutationObserver(this.CallBackObs);
-
-      // Start observing the target node for configured mutations
-      observer.observe(element, config);
-      
-      //console.log("Observing");
-      //console.log(this.check);
-      // Later, you can stop observing
-      //observer.disconnect();
-      return this.check
-    }
- 
-
+   
     CreateElement(_ele){
         return document.createElement(_ele)
     }
@@ -145,3 +84,4 @@ export class TKG extends HTMLElement{
     }
     
 }
+
